@@ -129,6 +129,7 @@ class CSVBoxImporter {
             if(typeof event.data == "object") {
                 if(event.data.type && event.data.type == "data-push-status") {
                     if(event.data.data.import_status == "success"){
+                        event.data.data.rows = event.data.row_data;
                         this.callback(true, event.data.data);
                     }else {
                         this.callback(false, event.data.data);
